@@ -1,0 +1,41 @@
+Service Mesh with Istio
+Patterns to build reliable systems
+29 Apr 2018
+
+* Agenda
+- What problem are we trying to solve
+- Provide an overview of distributed systems infrastructure
+- Live demonstration
+- Demystify and spark your imagination
+
+
+* What problem are we trying to solve
+
+* Getting from A to B
+
+.image img/fromatob.jpg _ 800
+
+* Reality
+
+.image img/retries.png _ 1000
+
+* Provisioning      
+
+.image img/provisioning.png _ 1000
+
+* Monitoring
+
+.image img/monitoring.png _ 1000
+
+* Who said on  call?
+
+.image img/monitoring2.jpg _ 1000
+
+* Istio to the rescue
+
+.image img/istio-architecture.png _ 1000
+
+* Traffic Management
+
+
+.image img/TrafficManagementOverview.svg _ 800

@@ -10,6 +10,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 PROJECT_ID=$(shell gcloud config list project --format=flattened | awk 'FNR == 1 {print $$2}')
 ZONE=us-west1-b
 ZIPKIN_POD_NAME=$(shell kubectl -n istio-system get pod -l app=zipkin -o jsonpath='{.items[0].metadata.name}')
@@ -31,10 +32,10 @@ deploy-istio:
 	kubectl apply -f istio-0.6/install/kubernetes/addons/zipkin.yaml
 	kubectl apply -f istio-0.6/install/kubernetes/addons/servicegraph.yaml
 	kubectl label namespace default istio-injection=enabled
-deploy-stuff:
+deploy-app:
 	kubectl apply -f ./configs/kube/services.yaml
 	-sed -e 's~<PROJECT_ID>~$(PROJECT_ID)~g' ./configs/kube/deployments.yaml | kubectl apply -f -
-get-stuff:
+get-pods:
 	kubectl get pods && kubectl get svc && kubectl get ingress
 egress:
 	./istio-0.6/bin/istioctl create -f ./configs/istio/egress.yaml
